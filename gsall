@@ -1,0 +1,58 @@
+#!/bin/bash
+# Author Daniel Bäckman
+
+# All the functions
+gsall_help() {
+	cat << _EOF_
+
+This is my personal, lazy github script.
+
+Commands:
+	--input = It will put you in to input mode where you can specify
+	the directories you want this to check. After you are done you
+	will have a file in your home directory called .gitdirs
+
+	--help = Will display this help
+
+_EOF_
+
+}
+
+all() {
+	if [ -e "$HOME/.gitdirs" ]; then
+	cat .gitdirs | while read line; do echo -e "\n$line";cd $line; git status; cd; done 2>/dev/null
+	leave
+else
+	error
+	leave
+	fi
+}
+
+error() {
+	echo "Error! You don't have the file setup. Use --input"
+	leave
+}
+
+
+leave() {
+	exit
+}
+
+if [ "$1" == "--input" ]; then
+	echo "Exit by pressing Ctrl+D"
+	cat > .gitdirs
+	leave
+fi
+
+if [ "$1" == "--help" ]; then
+	gsall_help
+	leave
+fi
+
+if [ -z "$1" ]; then
+	all
+	leave
+else
+	echo "Use --help"
+	leave
+fi

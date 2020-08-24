@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# This is generate keys, start the agent and add the key to it.
+
+# rsa encryption and 4096 bits
+ssh-keygen -t rsa -b 4096
+
+# this will start the agent
+eval $(ssh-agent -s)
+
+# this adds the key to the agent
+ssh-add $HOME/.ssh/id_rsa

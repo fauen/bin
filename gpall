@@ -1,0 +1,55 @@
+#!/bin/bash
+# Author Daniel Bäckman
+
+gpall_help() {
+	cat << _EOF_
+
+This does a git pull of all your specified directories.
+
+Commands:
+	--input = It will put you in to input mode where you can specify
+	the directories you want this to pull. After you are done you
+	will have a file in your home directory called .gitdirs
+
+	--help = Will display this help
+
+_EOF_
+
+}
+
+error() {
+	echo "Error! You don't have the file setup. Use --input"
+	leave
+}
+
+leave() {
+	exit
+}
+
+pull() {
+	if [ -e "$HOME/.gitdirs" ]; then
+		cat .gitdirs | while read line; do echo -e "\n$line";cd $line; git pull; cd; done 2>/dev/null
+	else
+		error
+		leave
+	fi
+}
+
+if [ "$1" == "--input" ]; then
+	echo "Exit by pressing Ctrl+D"
+	cat > .gitdirs
+	leave
+fi
+
+if [ "$1" == "--help" ]; then
+	gpall_help
+	leave
+fi
+
+if [ -z "$1" ]; then
+	pull
+	leave
+else
+	echo "Use --help"
+	leave
+fi

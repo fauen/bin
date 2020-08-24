@@ -1,0 +1,43 @@
+#!/bin/bash
+# Author Daniel Bäckman
+
+# This script is just for testing and has no real use.
+# I'm currently teaching myself to script and this is one of the
+# files that I'm using for that.
+
+# if [ $1 -gt 100 ];then echo "wow";else echo "buu";fi 2>/dev/null
+
+# sudo -v
+
+#if [ -z $1 ];then
+#	echo "[install/look]" 
+#	exit 1
+#elif [ $1 == install ];then
+#	sudo apt update && sudo apt upgrade
+#elif [ $1 == look ];then
+#	echo "look look look"
+#else
+#	echo "Specify a command"
+#fi
+
+sudo -v
+
+if [ -z $1 ]
+then
+	echo -e "Usage:\tupdate\n\tapps\n\teverything"
+	exit 1
+elif
+	[ $1 == update ]
+then
+	sudo apt update && sudo apt upgrade -y
+elif
+	[ $1 == apps ]
+then
+	sudo apt install -y tmux tldr vim openssh-server 2>/dev/null
+elif
+	[ $1 == everything ]
+then
+	sudo apt update; sudo apt upgrade -y; sudo apt install -y tmux tldr vim openssh-server 2>/dev/null
+else
+	echo "That is not a valid command"
+fi

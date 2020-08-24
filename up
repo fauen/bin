@@ -1,0 +1,52 @@
+#!/bin/bash
+# Author Daniel Bäckman
+
+up_help() {
+	cat << _EOF_
+
+Welcome to mister update!
+
+Commands:
+	--help = Will display this help.
+
+	--everything = This is the default option where it
+	updates and upgrades everything.
+
+	--update = Downloads the latest updates.
+
+	--upgrade = Upgrades with the latest updates.
+
+_EOF_
+
+}
+
+everything() {
+	sudo apt update 
+	sudo apt full-upgrade -yy
+	sudo apt autoremove
+}
+
+update() {
+	sudo apt update
+}
+
+upgrade() {
+	sudo apt full-upgrade
+	sudo apt autoremove
+}
+
+if [ "$1" == "--everything" ] || [ -z "$1" ]; then
+	everything
+fi
+
+if [ "$1" == "--update" ]; then
+	update
+fi
+
+if [ "$1" == "--upgrade" ]; then
+	upgrade
+fi
+
+if [ "$1" == "--help" ]; then
+	up_help
+fi
