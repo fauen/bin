@@ -1,0 +1,13 @@
+#!/bin/bash
+# Author Daniel "fauen" Bäckman
+# https://github.com/fauen
+
+if [ -z $1 ]
+then
+	echo "Input repository..."
+elif [ ${USER} == fauen ]
+then
+	git clone --recurse-submodules git@github.com:${USER}/${1}.git
+else
+	echo "Your name is ${USER} not fauen..."
+fi
