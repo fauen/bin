@@ -6,9 +6,20 @@
 
 if ! [ -d /home/$USER/.config/wtf/ ]; then
 	mkdir /home/$USER/.config/wtf
+else
+	exit 1
 fi
 
-cp /home/$USER/dotfiles/wtf-config.yml /home/$USER/.config/wtf/config.yml
+if [ -d /home/$USER/dotfiles/ ]; then
+	cp /home/$USER/dotfiles/wtf-config.yml /home/$USER/.config/wtf/config.yml
+else
+	echo "You don't have the dotfiles repo"
+	exit 1
+fi	
 
 # This will open your preferred editor and edit the config
-$EDITOR /home/$USER/.config/wtf/config.yml
+if [ -e /home/$USER/.config/wtf/config.yml ]; then
+	$EDITOR /home/$USER/.config/wtf/config.yml
+else
+	exit 1
+fi
