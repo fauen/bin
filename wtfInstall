@@ -1,0 +1,14 @@
+#!/bin/bash
+# Author Daniel "fauen" Bäckman
+# https://github.com/fauen
+
+# This will just copy the config and open an editor so you can make the changed you want.
+
+if ! [ -d /home/$USER/.config/wtf/ ]; then
+	mkdir /home/$USER/.config/wtf
+fi
+
+cp /home/$USER/dotfiles/wtf-config.yml /home/$USER/.config/wtf/config.yml
+
+# This will open your preferred editor and edit the config
+$EDITOR /home/$USER/.config/wtf/config.yml
