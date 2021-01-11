@@ -10,4 +10,4 @@ tmux new-session -d -s minecraft
 # move to the directory and launch the FTB usual ServerStart inside the session
 
 tmux send -t minecraft cd Space <Input absolute path to minecraft folder> Enter
-tmux send -t minecraft sh Space ServerStart.sh Enter
+tmux send -t minecraft sh Space start.sh Enter
