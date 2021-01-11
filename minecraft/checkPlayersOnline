@@ -1,0 +1,13 @@
+#!/bin/bash
+# Author Daniel "fauen" Bäckman
+# https://github.com/fauen
+
+if [ -z $1 ];then
+	echo "You need to specify the target. "
+else
+	tmux pipe-pane -t $1 'cat >/tmp/capture'
+	tmux send -t $1 '/list' Enter
+	sleep 1
+	tmux pipe-pane -t $1
+	cat /tmp/capture
+fi
