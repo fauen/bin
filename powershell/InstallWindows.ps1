@@ -32,7 +32,7 @@ switch ( $answer ) {
         winget install --id=VideoLAN.VLC -e --accept-source-agreements
     }
     2 {
-        $filePath = "$env:HOMEPATH\github\dotfiles\powershell\PowershellLinks.ps1"
+        $filePath = "$env:HOMEPATH\github\bin\powershell\PowershellLinks.ps1"
         if (Test-Path -Path $filePath) {
             Invoke-Expression -Command $filePath
         }
