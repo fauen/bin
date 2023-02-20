@@ -13,7 +13,7 @@ $userOption = @"
 
 $userOption
 
-[int]$answer = Read-Host 'What do you want to do?'
+$answer = Read-Host 'What do you want to do?'
 switch ( $answer ) {
     1 {
         Write-Host "Trying to install Discord..." -ForegroundColor "Yellow"
@@ -56,6 +56,6 @@ switch ( $answer ) {
         break
     }
     default {
-        .\install_windows.ps1
+        .\InstallWindows.ps1
     }
 }
