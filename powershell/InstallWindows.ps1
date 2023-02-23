@@ -37,16 +37,16 @@ switch ( $answer ) {
             Invoke-Expression -Command $filePath
         }
         else {
-            Write-Host -Message 'Path does not exist!' -ForegroundColor "Red"
+            Write-Warning 'Path does not exist!'
         }
     }
     3 {
         wsl.exe --install
         if ($? -eq $true) {
-            Write-Host "WSL is installed" -ForegroundColor "Yellow"
+            Write-Output "WSL is installed"
         }
         else {
-            Write-Host "Something went wrong..." -ForegroundColor "Red"
+            Write-Warning "Something went wrong..."
         }
     }
     4 {
