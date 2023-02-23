@@ -16,19 +16,19 @@ $userOption
 $answer = Read-Host 'What do you want to do?'
 switch ( $answer ) {
     1 {
-        Write-Host "Trying to install Discord..." -ForegroundColor "Yellow"
+        Write-Output "Trying to install Discord..."
         winget install --id=Discord.Discord -e --accept-source-agreements
-        Write-Host "Trying to install Visual Studio Code..." -ForegroundColor "Yellow"
+        Write-Output "Trying to install Visual Studio Code..."
         winget install --id=Microsoft.VisualStudioCode -e --accept-source-agreements
-        Write-Host "Trying to install 7zip..." -ForegroundColor "Yellow"
+        Write-Output "Trying to install 7zip..."
         winget install --id=7zip.7zip -e --accept-source-agreements
-        Write-Host "Trying to install Firefox..." -ForegroundColor "Yellow"
+        Write-Output "Trying to install Firefox..."
         winget install --id=Mozilla.Firefox -e --accept-source-agreements
-        Write-Host "Trying to install PowerToys..." -ForegroundColor "Yellow"
+        Write-Output "Trying to install PowerToys..."
         winget install --id=Microsoft.PowerToys -e --accept-source-agreements
-        Write-Host "Trying to install Spotify..." -ForegroundColor "Yellow"
+        Write-Output "Trying to install Spotify..."
         winget install --id=Spotify.Spotify -e --accept-source-agreements
-        Write-Host "Trying to install VLC..." -ForegroundColor "Yellow"
+        Write-Output "Trying to install VLC..."
         winget install --id=VideoLAN.VLC -e --accept-source-agreements
     }
     2 {
