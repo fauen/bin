@@ -53,9 +53,9 @@ function Get-Weather {
         $Location
     )
     if ($Location -eq $null) {
-        (Invoke-WebRequest "wttr.in/?m").Content
+        Invoke-RestMethod "wttr.in/?m"
     }
     else {
-        (Invoke-WebRequest "wttr.in/${Location}?m").Content
+        Invoke-RestMethod "wttr.in/${Location}?m"
     }
 }
