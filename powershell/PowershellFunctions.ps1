@@ -59,3 +59,17 @@ function Get-Weather {
         Invoke-RestMethod "wttr.in/${Location}?m"
     }
 }
+
+function Get-WeatherSmall {
+    [CmdletBinding()]
+    param (
+        [string]
+        $Location
+    )
+    if ($Location -eq $null) {
+        Invoke-RestMethod "wttr.in/?m?0"
+    }
+    else {
+        Invoke-RestMethod "wttr.in/${Location}?m?0"
+    }
+}
