@@ -73,3 +73,17 @@ function Get-WeatherSmall {
         Invoke-RestMethod "wttr.in/${Location}?m?0"
     }
 }
+
+function Get-MyIp {
+    [CmdletBinding()]
+    param (
+        [string]
+        $info
+    )
+    if ($info -eq 'full') {
+       Invoke-RestMethod "ipall.backman.io" 
+    }
+    else {
+        Invoke-RestMethod "ip.backman.io"
+    }
+}
