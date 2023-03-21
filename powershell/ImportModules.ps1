@@ -4,7 +4,7 @@ if ($args[0]) {
     }
 }
 else {
-    foreach ($i in Get-ChildItem ".\modules\") {
+    foreach ($i in Get-ChildItem "$HOME\pwsh\modules") {
         Import-Module $i
     }
 }
