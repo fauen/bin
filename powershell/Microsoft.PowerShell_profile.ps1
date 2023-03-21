@@ -16,7 +16,7 @@ if ($PSVersionTable.Platform -eq "Unix") {
 }
 else {
     . $env:HOMEPATH\.config\powershell\PowershellPrompt.ps1
-    . $env:HOMEPATH\.config\powershell\PowershellFunctions.ps1
+    . $env:HOMEPATH\.config\powershell\ImportModules.ps1
     . $env:HOMEPATH\.config\powershell\PowershellAliases.ps1
 }
 
