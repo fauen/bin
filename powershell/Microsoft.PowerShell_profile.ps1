@@ -16,8 +16,8 @@ if ($PSVersionTable.Platform -eq "Unix") {
 }
 else {
     . $env:HOMEPATH\.config\powershell\PowershellPrompt.ps1
-    . $env:HOMEPATH\.config\powershell\ImportModules.ps1
     . $env:HOMEPATH\.config\powershell\PowershellAliases.ps1
+    . $env:HOMEPATH\.config\powershell\ImportModules.ps1 "$env:HOMEPATH\github\bin\powershell\modules"
 }
 
 # The ErrorAction here is specifically for Unix platforms.
