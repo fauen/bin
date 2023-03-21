@@ -80,7 +80,7 @@ function Get-MyIp {
         [string]
         $info
     )
-    if ($info -eq 'full') {
+    if ($info -eq 'Full') {
        Invoke-RestMethod "ipall.backman.io" 
     }
     else {
